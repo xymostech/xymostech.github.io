@@ -1,0 +1,203 @@
+<!doctype html>
+<html ⚡>
+  <head>
+    <!-- AMP -->
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <link rel="canonical" href="https://xymostech.github.io/" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <!-- /AMP -->
+
+    <title>Hacking on the Clevo N240BU | Ecce blog</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <style amp-custom>
+      body {
+        font-family: 'Open sans', sans-serif;
+        color: #333;
+      }
+
+      h1 {
+        margin: 0;
+        padding: 50px;
+        color: #efefef;
+        background-color: #1586ca;
+        text-align: center;
+      }
+
+      header a {
+        text-decoration: none;
+      }
+
+      h2 {
+        margin: 0;
+      }
+
+      article {
+        padding: 0 50px;
+        max-width: 800px;
+        margin: 25px auto;
+      }
+
+      article p {
+        margin-top: 25px;
+        font-size: 18px;
+      }
+
+      article header p {
+        margin-top: 0;
+      }
+
+      article a {
+        text-decoration: none;
+      }
+
+      footer {
+        text-align: center;
+        margin: 25px;
+      }
+
+      @media screen and (max-width: 375px) {
+        article {
+          padding: 0 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="/"><h1>Ecce blog</h1></a>
+    </header>
+
+    <article>
+      <header>
+        <h2>Hacking on the Clevo&nbsp;N240BU</h2>
+        <p>Written <time datetime="2016-12-22">December 22, 2016</time></p>
+      </header>
+      <p>
+        I recently bought a new computer,
+        the <a href="http://www.clevo.com.tw/clevo_prodetail.asp?id=815&lang=en">Clevo
+        N240BU</a>. You might have never heard of Clevo computers (or at least
+        I never had) but you've probably seen some of their computers rebranded
+        and sold under other name like Sager or System76. In fact, the way I
+        found out about their computers was by looking for specs for a System76
+        laptop. I'm gonna walk through the process I went through of deciding
+        to buy one of these laptops and maybe some helpful tips for anyone else
+        who wants to do something similar.
+      </p>
+      <p>
+        To a person like me,
+        the <a href="https://system76.com/laptops/lemur">System76 Lemur</a> is
+        a pretty sweet looking laptop. It's pretty small (14" screen, less than
+        1" thick), can boast an i7 processor and 32 gigs of RAM, and comes with
+        Ubuntu preinstalled. My current laptop,
+        a <a href="http://www.dell.com/en-us/shop/productdetails/xps-13-9343-laptop">Dell
+        XPS 13</a>, has a really wonderful build quality but it's really
+        expensive to get one with more RAM and if you want an i7 and more RAM
+        it's also gonna come with a touch screen, which I would rather not pay
+        for. So, the Lemur has exactly what I want: tons of ram and a fast
+        processor for pretty cheap and with a standard 1080p screen. Awesome.
+      </p>
+      <p>
+        But could I get it cheaper? I'm not afraid of taking apart my laptop,
+        so I looked into buying my own memory, hard drive(s), and wireless card
+        and installing it myself. A cursory glance around the internet shows
+        that if I bought the cheap model and put my own RAM, SSD, and wifi
+        card, I could make a computer for about $100 cheaper than what I could
+        get on System76. I run Arch Linux so having Ubuntu preinstalled isn't
+        helpful since I would have to do my own install anyway. This was
+        sounding great in theory but I know I've been bitten recently by
+        laptops that come with the RAM and SSD soldered to the motherboard. So
+        I started doing some research about whether the System76 Lemur could be
+        upgraded. And what did I find?
+      </p>
+      <p>
+        <b>Nothing.</b> Actually, as far as I can tell, spec sheets for the
+        System76 Lemur can't be found.
+        The <a href="https://system76.com/guides/lemu7">Lemur Quick Start
+        Guide</a> is about as close as I could find to a manual or guide but it
+        just comes with some outside shots of the computer and a list of the
+        tech specs. Odd. Why would a company devoted to making computers for
+        hackers (I guess they're trying to make Linux computers which are
+        accessible to non-techy folks, but we all know that people buying Linux
+        computers are more likely to be able to take apart their computers) not
+        provide any documentation? With some more searching I eventually
+        stumbled upon the name of a Taiwanese computer company named "Clevo"
+        which led me to their website which led me to the discovery of the
+        N240BU.
+      </p>
+      <p>
+        For the most part, this made things click for me. System76 doesn't seem
+        like a large enough organization to be actually manufacturing laptops
+        from scratch so it makes sense that they're just rebranding a different
+        company's laptop. The value they provide is in making sure all of the
+        parts actually work with Linux and doing the Ubuntu pre-install. That
+        also maybe explains why the computer has such an odd selection of ports
+        (who needs a VGA port on their laptop? Or an Ethernet port? Actually an
+        Ethernet port sounds pretty handy sometimes) instead of trying to go
+        the Mac-esque direction with everything being sleek. And lastly, it
+        explains why there are no product manuals for the Lemur: I was
+        searching for the wrong product!
+      </p>
+      <p>
+        Well, it sorta explains that last point. It probably wouldn't be
+        <i>too</i> hard for System76 to provide a link to the real product
+        manuals on their website. Maybe they don't want people finding out the
+        truth about their computers (which isn't that big of a deal). Or maybe
+        it's because even with the correct product ID, there still aren't very
+        good manuals for this computer! The downloads section on the Clevo
+        website gives you something, but it's only long because it's translated
+        into a million languages. The only shot of the inside is when they show
+        you where to put your SIM card in case you get the optional 3G chip.
+        Would it kill you to make a repair guide for how to access the
+        different parts? Was this a sign that the parts actually weren't
+        replaceable, which is why they don't bother telling you how to open the
+        thing up?
+      </p>
+      <p>
+        So finding out this hidden secret wasn't helping out with figuring out
+        whether I can upgrade the parts myself. Maybe it could help in a
+        different way? Thus, I stumbled upon
+        <a href="http://rjtech.com">R&amp;J Tech</a>, which sells barebone
+        Clevo laptops, including our favourite
+        <a href="http://rjtech.com/shop/index.php?dispatch=products.view&product_id=30409">Clevo
+        N240BU</a>, without RAM, hard drives, Wi-Fi cards, or an OS! Leaving
+        those out drops the price of the laptop down another $150, making this
+        look like an even better option. And the fact that
+        they're <i>selling</i> these computers provides some pretty good
+        evidence that the end consumer would be able to plug in their own
+        parts.
+      </p>
+      <p>
+        But pretty good doesn't mean that it's 100% likely. So what's the
+        solution in this case? It's pretty obvious: buy the cheap laptop and
+        find out for myself if I can replace the parts. Then, armed with my new
+        knowledge, take a whole bunch of pictures and post about it on the
+        internet! And if it doesn't work out, and the weird barebone computer
+        doesn't actually let me put anything in it, then it'll be extra funny.
+        Plus, there's a return policy.
+      </p>
+    </article>
+
+    <footer>
+      &copy; Xymostech 2016.
+    </footer>
+
+    <amp-analytics type="googleanalytics" id="analytics1">
+      <script type="application/json">
+      {
+        "vars": {
+          "account": "UA-86278957-1"
+        },
+        "triggers": {
+          "trackPageview": {
+            "on": "visible",
+            "request": "pageview"
+          }
+        }
+      }
+      </script>
+    </amp-analytics>
+  </body>
+</html>
